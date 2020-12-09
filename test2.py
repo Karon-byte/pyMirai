@@ -3,13 +3,17 @@ from tkinter import ttk
 import btnTest
 from btnTest import Buttons
 
+
 root=Tk()
 root.title("test")
 
 tks=[]
 btns=[]
 opebtns=[]
-btnvar=btnTest.btn_t
+btn_t=btnTest.btn_t
+def substext(text):
+    global btn_t
+    btn_t += text
 
 root_frame=ttk.Frame(root,padding=30)
 frame2=ttk.Frame(root_frame,padding=30)
@@ -18,6 +22,7 @@ frame4=ttk.Frame(root_frame,padding=30)
 frame5=ttk.Frame(root_frame,padding=30)
 opeframe=ttk.Frame(root_frame,padding=30)
 lab1=ttk.Label(frame2,text="test Hello world")
+entry=ttk.Entry(frame2,textvariable=btn_t,width=20,height=40)
 
 f_frame=frame5
 for x in range(10):
@@ -32,13 +37,12 @@ for x in range(10):
     btns.append(btn)
     
 
-btns_add=ttk.Button(frame2,text="+",padding=20)
-btns_sub=ttk.Button(frame3,text="-",padding=20)
-btns_multi=ttk.Button(frame4,text="*",padding=20)
-btns_div=ttk.Button(frame5,text="/",padding=20)
+btns_add=ttk.Button(frame2,text="+",padding=20,command=lambda: substext("+"))
+btns_sub=ttk.Button(frame3,text="-",padding=20,command=lambda: substext("-"))
+btns_multi=ttk.Button(frame4,text="*",padding=20,command=lambda: substext("*"))
+btns_div=ttk.Button(frame5,text="/",padding=20,command=lambda: substext("/"))
 btns_equ=ttk.Button(frame5,text="=",padding=20)
 btns_shift=ttk.Button(frame5,text="SHIFT",padding=20)
-textentry=ttk.Entry(frame2,textvariable=btnvar)
 
 opebtns.append(btns_add)
 opebtns.append(btns_sub)
