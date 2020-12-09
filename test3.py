@@ -7,14 +7,20 @@ root=Tk()
 root.title("test")
 
 btn_t=StringVar()
-
+btn_shift = False
+subtexts=[]
 def substext(text):
+    if btn_shift:
+        btn =btn_t.get() + str(text)
+        btn_t.set(btn)
+    
     btn = btn_t.get() + str(text)
     btn_t.set(btn)
 
 def makebtn(test,root,btn_l):
+    btn_s = str(test) + "\nhoge"
     btn_l.append(
-        ttk.Button(root,text=test,padding=20,command=lambda:substext(test))
+        ttk.Button(root,text=btn_s,padding=20,command=lambda:substext(test))
         )
 
 tks=[]
@@ -27,7 +33,8 @@ frame3=ttk.Frame(root_frame,padding=30)
 frame4=ttk.Frame(root_frame,padding=30)
 frame5=ttk.Frame(root_frame,padding=30)
 opeframe=ttk.Frame(root_frame,padding=30)
-lab1=ttk.Label(frame2,text="test Hello world")
+ent1=ttk.Entry(frame2,textvariable=btn_t,width=50)
+
 
 f_frame=frame5
 for x in range(10):
@@ -40,12 +47,12 @@ for x in range(10):
     makebtn(x,f_frame,btns)
     
 
-btns_add=ttk.Button(frame2,text="+",padding=20)
-btns_sub=ttk.Button(frame3,text="-",padding=20)
-btns_multi=ttk.Button(frame4,text="*",padding=20)
-btns_div=ttk.Button(frame5,text="/",padding=20)
+btns_add=ttk.Button(frame2,text="+",padding=20,command=lambda:substext("+"))
+btns_sub=ttk.Button(frame3,text="-",padding=20,command=lambda:substext("-"))
+btns_multi=ttk.Button(frame4,text="*",padding=20,command=lambda:substext("*"))
+btns_div=ttk.Button(frame5,text="/",padding=20,command=lambda:substext("/"))
 btns_equ=ttk.Button(frame5,text="=",padding=20)
-btns_shift=ttk.Button(frame5,text="SHIFT",padding=20)
+btns_shift=ttk.Button(frame5,text="SHIFT",padding=20,command=lambda:btn_shift != btn_shift)
 
 opebtns.append(btns_add)
 opebtns.append(btns_sub)
@@ -57,11 +64,11 @@ tks.append(frame2)
 tks.append(frame3)
 tks.append(frame4)
 tks.append(frame5)
-tks.append(lab1)
 
 for item in tks:
     item.pack()
 
+ent1.pack()
 for x in range(1,10):
     btns[x].pack(side=LEFT,padx=10)
 for x in opebtns:
