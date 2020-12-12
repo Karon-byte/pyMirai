@@ -9,6 +9,7 @@ btn_shift = False
 subtexts=[]
 tks=[]
 btns=[]
+btns_l_num=[["7","8","9"],["4","5","6"],["1","2","3"],[".","0","ans"]]
 opebtns=[]
 fpad=5
 btn_pad=10
