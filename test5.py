@@ -10,6 +10,15 @@ subtexts=[]
 tks=[]
 btns=[]
 btns_l_num=[["7","8","9"],["4","5","6"],["1","2","3"],[".","0","ans"]]
+btns_l_func=[
+    [
+        ["CLR","CLR cmd"],["⬅","⬅cmd"],["➡","➡cmd"],["shift","shift cmd"],
+    ],
+    [
+        ["π","π cmd"],["x^2","x^2 cmd"],["x^y","x^y cmd"],["DEL","DEL cmd"],
+    ],
+        ["logx","logx cmd"],["(","( cmd"],[")",") cmd"],
+    ]
 opebtns=[]
 fpad=5
 btn_pad=10
